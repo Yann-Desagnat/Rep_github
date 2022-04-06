@@ -16,22 +16,24 @@ class Window(QMainWindow):
         super().__init__()
         self.setWindowTitle("Grid Layouts")
         self.layout = QGridLayout()
-        self.layout.addWidget(Color('black'),0,0)
-        self.layout.addWidget(Color('white'),1,0)
-        self.layout.addWidget(Color('black'),2,0)
-        self.layout.addWidget(Color('white'),3,0)
-        self.layout.addWidget(Color('white'),0,1)
-        self.layout.addWidget(Color('black'),1,1)
-        self.layout.addWidget(Color('white'),2,1)
-        self.layout.addWidget(Color('black'),3,1)
-        self.layout.addWidget(Color('black'),0,2)
-        self.layout.addWidget(Color('white'),1,2)
-        self.layout.addWidget(Color('black'),2,2)
-        self.layout.addWidget(Color('white'),3,2)
-        self.layout.addWidget(Color('white'),0,3)
-        self.layout.addWidget(Color('black'),1,3)
-        self.layout.addWidget(Color('white'),2,3)
-        self.layout.addWidget(Color('black'),3,3)
+        self.layout.setSpacing(0)
+        self.layout.setContentsMargins(0,0,0,0)
+        for i in range (4):
+            if i%2==0:
+                for k in range (4):
+                    if k%2==0:
+                         self.layout.addWidget(Color('black'),i,k)
+                    else:
+                         self.layout.addWidget(Color('white'),i,k)
+            else:
+                for j in range (4):
+                    if j%2==0:
+                         self.layout.addWidget(Color('white'),i,j)
+                    else:
+                         self.layout.addWidget(Color('black'),i,j)
+                        
+                
+                
         self.widget = QWidget()
         self.widget.setLayout(self.layout)
         self.setCentralWidget(self.widget)
